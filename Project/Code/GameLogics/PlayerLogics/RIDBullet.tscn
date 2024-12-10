@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://qkqweq5s3hme"]
+
+[ext_resource type="Shader" path="res://Code/GameLogics/PlayerLogics/bullet.gdshader" id="1_1li11"]
+[ext_resource type="Script" path="res://Code/GameLogics/PlayerLogics/RIDBullet.gd" id="1_tjn50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6731"]
+radius = 19.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvut5"]
+shader = ExtResource("1_1li11")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/trail_length = 2.0
+shader_parameter/trail_width_start = 1.0
+shader_parameter/trail_width_end = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cvqyf"]
+orientation = 2
+
+[node name="RidBullet" type="Area2D"]
+script = ExtResource("1_tjn50")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h6731")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_wvut5")
+scale = Vector2(19, 19)
+mesh = SubResource("PlaneMesh_cvqyf")

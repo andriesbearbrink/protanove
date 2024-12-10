@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b01j86ybj8cnu"]
+
+[ext_resource type="Script" path="res://Code/UI/UIPlayerSetup.gd" id="1_gi44k"]
+[ext_resource type="PackedScene" uid="uid://dt80xw3g18jad" path="res://Code/UI/PlayerSlot.tscn" id="2_e4d2t"]
+
+[node name="PlayerSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gi44k")
+player_slot_scene = ExtResource("2_e4d2t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -40.5
+offset_right = 85.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player Setup"
+horizontal_alignment = 1
+
+[node name="PlayerSlotsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2

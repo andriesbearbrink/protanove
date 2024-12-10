@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://byxollwwx4rhb"]
+
+[ext_resource type="Script" path="res://Code/GameLogics/Exp/ExperienceOrb.gd" id="1_56uc5"]
+[ext_resource type="Shader" path="res://Code/GameLogics/PlayerLogics/GeoShader.gdshader" id="2_efbhy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwnkh"]
+radius = 4.12311
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_heknh"]
+shader = ExtResource("2_efbhy")
+shader_parameter/shape_0_active = true
+shader_parameter/shape_1_active = false
+shader_parameter/shape_2_active = false
+shader_parameter/shape_3_active = false
+shader_parameter/shape_4_active = true
+shader_parameter/shape_0_color = Color(0.203, 0.377, 0.344, 0.893)
+shader_parameter/shape_1_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_2_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_3_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_4_color = Color(0.541965, 0.785759, 0.202177, 0.8)
+shader_parameter/outline_thickness = 0.051
+shader_parameter/throb_speed = 2.0
+shader_parameter/throb_intensity = 0.1
+shader_parameter/phase_shift = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_66an8"]
+size = Vector2(20.015, 20.05)
+orientation = 2
+
+[node name="ExpOrb" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_56uc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nwnkh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_heknh")
+scale = Vector2(0.3997, 0.3997)
+mesh = SubResource("PlaneMesh_66an8")

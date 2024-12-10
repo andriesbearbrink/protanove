@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg7rpiubrhh1b"]
+
+[ext_resource type="Script" path="res://Code/GameLogics/PlayerLogics/BasePlayer.gd" id="1_mrvrf"]
+[ext_resource type="Shader" path="res://Code/GameLogics/PlayerLogics/GeoShader.gdshader" id="2_p2t1e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6d1xy"]
+resource_local_to_scene = true
+shader = ExtResource("2_p2t1e")
+shader_parameter/shape_0_active = false
+shader_parameter/shape_1_active = true
+shader_parameter/shape_2_active = false
+shader_parameter/shape_3_active = true
+shader_parameter/shape_4_active = true
+shader_parameter/shape_0_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_1_color = Color(0.158331, 0.253175, 0.238517, 0.8)
+shader_parameter/shape_2_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_3_color = Color(0, 0, 0, 0.831373)
+shader_parameter/shape_4_color = Color(0, 0, 0, 0.765)
+shader_parameter/outline_thickness = 0.012
+shader_parameter/throb_speed = 2.0
+shader_parameter/throb_intensity = 0.1
+shader_parameter/phase_shift = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rvlm"]
+uv2_padding = 0.0
+orientation = 2
+
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_mrvrf")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_6d1xy")
+position = Vector2(2.98023e-08, 0)
+rotation = 1.5708
+scale = Vector2(20.5833, 20.5833)
+mesh = SubResource("PlaneMesh_5rvlm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(20, 0, -10, 17, -10, -17)
+
+[node name="BulletSpawn" type="Marker2D" parent="." groups=["Player"]]
+unique_name_in_owner = true
+position = Vector2(25, 0)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch7t3rr7tj1rl"]
+
+[ext_resource type="Script" path="res://Code/GameLogics/Enemy/EnemyBase.gd" id="1_abcde"]
+[ext_resource type="Shader" path="res://Code/GameLogics/PlayerLogics/GeoShader.gdshader" id="2_d1fgl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67890"]
+radius = 19.0263
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12345"]
+shader = ExtResource("2_d1fgl")
+shader_parameter/shape_0_active = true
+shader_parameter/shape_1_active = false
+shader_parameter/shape_2_active = true
+shader_parameter/shape_3_active = false
+shader_parameter/shape_4_active = false
+shader_parameter/shape_0_color = Color(0.223956, 0.0810124, 0.0531328, 0.8)
+shader_parameter/shape_1_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_2_color = Color(0, 0, 0, 0.8)
+shader_parameter/shape_3_color = Color(1, 1, 1, 0.8)
+shader_parameter/shape_4_color = Color(0.723837, 0.644136, 0.462188, 0.8)
+shader_parameter/outline_thickness = 0.029
+shader_parameter/throb_speed = 2.0
+shader_parameter/throb_intensity = 0.1
+shader_parameter/phase_shift = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_a1ecl"]
+size = Vector2(23.305, 23.14)
+
+[node name="EnemyBase" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_abcde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_67890")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_12345")
+scale = Vector2(1.90147, 1.90147)
+mesh = SubResource("QuadMesh_a1ecl")

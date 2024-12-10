@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt80xw3g18jad"]
+
+[ext_resource type="Script" path="res://Code/UI/UIPlayerSlot.gd" id="1_ef0c7"]
+
+[node name="PlayerSlot" type="PanelContainer"]
+script = ExtResource("1_ef0c7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player X"
+horizontal_alignment = 1
+
+[node name="ProfileOption" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="InputLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press any button to join"
+
+[node name="NewProfileButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Profile"
+
+[node name="ProfileNameEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Ready"
+
+[node name="FocusIndicator" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2)

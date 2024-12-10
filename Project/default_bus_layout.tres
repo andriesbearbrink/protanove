@@ -1,0 +1,32 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bc1t1b22stpv0"]
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_fpb7r"]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cp41g"]
+resource_name = "Reverb"
+
+[resource]
+bus/0/volume_db = 0.0694828
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -20.3684
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectChorus_fpb7r")
+bus/1/effect/0/enabled = true
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -4.24723
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_cp41g")
+bus/2/effect/0/enabled = false
+bus/3/name = &"UI"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -2.91905
+bus/3/send = &"Master"

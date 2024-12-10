@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://68xwa170vpux"]
+
+[ext_resource type="Script" path="res://Code/GameLogics/Exp/ExpPerkButton.gd" id="1_rd3qx"]
+
+[node name="ExpPerkButton" type="Button"]
+modulate = Color(0.882338, 0.518735, 0.434417, 1)
+self_modulate = Color(0.87064, 0.486904, 0.416672, 1)
+offset_right = 8.0
+offset_bottom = 8.0
+button_mask = 0
+script = ExtResource("1_rd3qx")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed" flags=6]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

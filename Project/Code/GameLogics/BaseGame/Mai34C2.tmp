@@ -1,0 +1,101 @@
+[gd_scene load_steps=17 format=4 uid="uid://dyqku4b80noy4"]
+
+[ext_resource type="Script" path="res://Code/GameLogics/BaseGame/MainGame.gd" id="1_yak1n"]
+[ext_resource type="Script" path="res://Code/GameLogics/PlayerLogics/RIDBulletSystem.gd" id="2_cqs35"]
+[ext_resource type="Script" path="res://Code/GameLogics/BaseGame/ScreenWarpSystem.gd" id="2_prohk"]
+[ext_resource type="Shader" path="res://Code/GameLogics/BaseGame/bg.gdshader" id="2_skaqd"]
+[ext_resource type="Script" path="res://Code/GameLogics/BaseGame/bg.gd" id="3_05en2"]
+[ext_resource type="Script" path="res://Code/GameLogics/BaseGame/PlayerManager.gd" id="3_ndfo4"]
+[ext_resource type="PackedScene" uid="uid://bg7rpiubrhh1b" path="res://Code/GameLogics/PlayerLogics/character.tscn" id="4_37iu2"]
+[ext_resource type="Script" path="res://Code/GameLogics/Enemy/EnemySystem.gd" id="6_d3kam"]
+[ext_resource type="Script" path="res://Code/GameLogics/Enemy/EnemyCreationSystem.gd" id="7_ewefc"]
+[ext_resource type="Script" path="res://Code/GameLogics/Exp/ExpLevelSystem.gd" id="8_xvikr"]
+[ext_resource type="Script" path="res://Code/GameLogics/Exp/ExpPerkSystem.gd" id="9_5eyi0"]
+[ext_resource type="Script" path="res://Code/GameLogics/Exp/ExpPerkSelectionUI.gd" id="10_2vf7c"]
+[ext_resource type="Script" path="res://Code/GameLogics/Enemy/EnemyMasterController.gd" id="11_7c7lq"]
+[ext_resource type="PackedScene" uid="uid://68xwa170vpux" path="res://Code/GameLogics/Exp/ExpPerkButton.tscn" id="11_vnfjf"]
+[ext_resource type="PackedScene" uid="uid://dnfw8hqemdbal" path="res://Code/UI/UIPauseMenu.tscn" id="12_qs4qw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33k72"]
+shader = ExtResource("2_skaqd")
+shader_parameter/color1 = Color(0.61224, 0.904662, 0.967421, 1)
+shader_parameter/color2 = Color(0.996267, 0.865473, 0.62736, 1)
+shader_parameter/color3 = Color(0.704423, 0.908158, 0.94817, 1)
+shader_parameter/color4 = Color(0.772788, 0.938859, 1, 1)
+shader_parameter/speed = 0.235
+shader_parameter/line_opacity = 0.0
+shader_parameter/player1_pos = null
+shader_parameter/player2_pos = null
+shader_parameter/player_influence = 100.0
+shader_parameter/bullet_data = PackedVector4Array()
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_yak1n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_33k72")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_05en2")
+
+[node name="ScreenWrapSystem" type="Node2D" parent="."]
+script = ExtResource("2_prohk")
+
+[node name="BulletSystem" type="Node2D" parent="."]
+z_index = 100
+script = ExtResource("2_cqs35")
+
+[node name="PlayerManager" type="Node" parent="."]
+script = ExtResource("3_ndfo4")
+player_scene = ExtResource("4_37iu2")
+
+[node name="EnemySystem" type="Node2D" parent="."]
+script = ExtResource("6_d3kam")
+
+[node name="SimpleEnemyCreationSystem" type="Node" parent="."]
+script = ExtResource("7_ewefc")
+
+[node name="ExpLevelSystem" type="Node" parent="."]
+script = ExtResource("8_xvikr")
+
+[node name="ExpPerkSystem" type="Node" parent="."]
+script = ExtResource("9_5eyi0")
+
+[node name="EnemyMasterController" type="Node" parent="."]
+script = ExtResource("11_7c7lq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="UiPauseMenu" parent="CanvasLayer" instance=ExtResource("12_qs4qw")]
+visible = false
+
+[node name="ExpPerkSelectionUI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("perk_system", "player_manager")]
+visible = false
+modulate = Color(0.481284, 0.526417, 0.733187, 1)
+self_modulate = Color(0, 0.840182, 0.841898, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_2vf7c")
+perk_button_scene = ExtResource("11_vnfjf")
+perk_system = NodePath("../../ExpPerkSystem")
+player_manager = NodePath("../../PlayerManager")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ExpPerkSelectionUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.4, 0.388235)

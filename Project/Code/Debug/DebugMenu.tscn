@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn7hqflygtyp7"]
+
+[ext_resource type="Script" path="res://Code/Debug/DebugMenu.gd" id="1_debug"]
+
+[node name="DebugMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_debug")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelsContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+grow_horizontal = 2
+grow_vertical = 2

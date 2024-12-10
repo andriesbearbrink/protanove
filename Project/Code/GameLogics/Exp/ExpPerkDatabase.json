@@ -1,0 +1,430 @@
+{
+  "perks": [
+	{
+	  "id": "increased_damage",
+	  "name": "Increased Damage",
+	  "description": "Increases bullet damage by 20%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "bullet_damage",
+		"value": 1.2
+	  },
+	  "rarity": 0.7,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 5
+	},
+	{
+	  "id": "faster_fire_rate",
+	  "name": "Faster Fire Rate",
+	  "description": "Increases fire rate by 10%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "fire_rate",
+		"value": 1.1
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 5
+	},
+	{
+	  "id": "swift_bullets",
+	  "name": "Swift Bullets",
+	  "description": "Increases bullet speed by 25%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "bullet_speed",
+		"value": 1.25
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 4
+	},
+	{
+	"id": "explosive_rounds",
+	"name": "Explosive Rounds",
+	"description": "Bullets explode on impact, dealing area damage",
+	"effect": {
+		"type": "set",
+		"attribute": "is_explosive",
+		"value": true,
+		"explosion_size": 50.0,
+		"explosion_damage": 20.0,
+		"explosion_force": 100.0
+	},
+	"rarity": 0.3,
+	"prerequisites": [],
+	"exclusions": ["fragmentation_rounds"],
+	"max_level": 1
+	},
+	{
+	  "id": "enhanced_explosions",
+	  "name": "Enhanced Explosions",
+	  "description": "Increases explosion size and damage by 50%",
+	  "effect": [
+		{
+		  "type": "multiply",
+		  "attribute": "explosion_size",
+		  "value": 1.5
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "explosion_damage",
+		  "value": 1.5
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "explosion_force",
+		  "value": 1.5
+		}
+	  ],
+	  "rarity": 0.4,
+	  "prerequisites": ["explosive_rounds"],
+	  "exclusions": [],
+	  "max_level": 3
+	},
+	{
+	  "id": "fragmentation_rounds",
+	  "name": "Fragmentation Rounds",
+	  "description": "Bullets split into 3 fragments on impact",
+	  "effect": [
+		{
+		  "type": "set",
+		  "attribute": "fragmentation_count",
+		  "value": 3
+		},
+		{
+		  "type": "set",
+		  "attribute": "fragmentation_damage",
+		  "value": 15
+		},
+		{
+		  "type": "set",
+		  "attribute": "fragmentation_level",
+		  "value": 1
+		}
+	  ],
+	  "rarity": 0.3,
+	  "prerequisites": [],
+	  "exclusions": ["explosive_rounds"],
+	  "max_level": 1
+	},
+	{
+	  "id": "improved_fragmentation",
+	  "name": "Improved Fragmentation",
+	  "description": "Increases fragment count by 2 and adds slight homing",
+	  "effect": [
+		{
+		  "type": "add",
+		  "attribute": "fragmentation_count",
+		  "value": 2
+		},
+		{
+		  "type": "set",
+		  "attribute": "fragmentation_homing",
+		  "value": 0.2
+		}
+	  ],
+	  "rarity": 0.4,
+	  "prerequisites": ["fragmentation_rounds"],
+	  "exclusions": [],
+	  "max_level": 2
+	},
+	{
+	  "id": "explosive_fragments",
+	  "name": "Explosive Fragments",
+	  "description": "Fragments explode on impact with reduced size",
+	  "effect": [
+		{
+		  "type": "set",
+		  "attribute": "fragmentation_explosive",
+		  "value": true
+		},
+		{
+		  "type": "set",
+		  "attribute": "explosion_size",
+		  "value": 25.0
+		},
+		{
+		  "type": "set",
+		  "attribute": "explosion_damage",
+		  "value": 10
+		},
+		{
+		  "type": "set",
+		  "attribute": "explosion_force",
+		  "value": 100.0
+		}
+	  ],
+	  "rarity": 0.2,
+	  "prerequisites": ["fragmentation_rounds"],
+	  "exclusions": [],
+	  "max_level": 1
+	},
+	{
+	  "id": "increased_damage",
+	  "name": "Increased Damage",
+	  "description": "Increases bullet damage by 20%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "bullet_damage",
+		"value": 1.2
+	  },
+	  "rarity": 0.7,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 5
+	},
+	{
+	  "id": "faster_fire_rate",
+	  "name": "Faster Fire Rate",
+	  "description": "Increases fire rate by 10%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "fire_rate",
+		"value": 1.1
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 5
+	},
+	{
+	  "id": "homing",
+	  "name": "Homing",
+	  "description": "Increases bullet homing by 10%",
+	  "effect": {
+		"type": "add",
+		"attribute": "bullet_homing",
+		"value": 0.1
+	  },
+	  "rarity": 0.3,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 10
+	},
+	{
+	  "id": "ricochet",
+	  "name": "Ricochet",
+	  "description": "Increases bullet ricochet by 1",
+	  "effect": {
+		"type": "add",
+		"attribute": "bullet_ricochet",
+		"value": 1
+	  },
+	  "rarity": 0.4,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 10
+	},
+	{
+	  "id": "rapid_fire",
+	  "name": "Rapid Fire",
+	  "description": "Drastically increases fire rate but reduces damage",
+	  "effect": [
+		{
+		  "type": "multiply",
+		  "attribute": "fire_rate",
+		  "value": 1.5
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "bullet_damage",
+		  "value": 0.8
+		}
+	  ],
+	  "rarity": 0.4,
+	  "prerequisites": ["faster_fire_rate"],
+	  "exclusions": ["sniper_shot"],
+	  "max_level": 3
+	},
+	{
+	  "id": "sniper_shot",
+	  "name": "Sniper Shot",
+	  "description": "Increases bullet speed and damage, but reduces fire rate",
+	  "effect": [
+		{
+		  "type": "multiply",
+		  "attribute": "bullet_speed",
+		  "value": 3
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "bullet_damage",
+		  "value": 1.5
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "fire_rate",
+		  "value": 0.5
+		}
+	  ],
+	  "rarity": 1,
+	  "prerequisites": ["increased_damage"],
+	  "exclusions": ["rapid_fire"],
+	  "max_level": 1
+	},
+	{
+	  "id": "increased_top_speed",
+	  "name": "Enhanced Speed",
+	  "description": "Increases maximum movement speed by 15%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "movement_speed",
+		"value": 1.15
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 5
+	},
+	{
+	  "id": "increased_acceleration",
+	  "name": "Quick Start",
+	  "description": "Increases acceleration by 20%",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "acceleration",
+		"value": 1.2
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 4
+	},
+	{
+	  "id": "increased_friction",
+	  "name": "Enhanced Braking",
+	  "description": "Increases friction =by 25%, allowing for quicker stops",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "friction",
+		"value": 1.25
+	  },
+	  "rarity": 0.5,
+	  "prerequisites": [],
+	  "exclusions": ["reduced_friction"],
+	  "max_level": 3
+	},
+	{
+	  "id": "reduced_friction",
+	  "name": "Smooth Glide",
+	  "description": "Reduces friction by 20%, allowing for longer drifts",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "friction",
+		"value": 0.8
+	  },
+	  "rarity": 0.5,
+	  "prerequisites": [],
+	  "exclusions": ["increased_friction"],
+	  "max_level": 3
+	},
+	{
+	  "id": "momentum_master",
+	  "name": "Momentum Master",
+	  "description": "Increases both top speed and acceleration by 10%",
+	  "effect": [
+		{
+		  "type": "multiply",
+		  "attribute": "movement_speed",
+		  "value": 1.1
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "acceleration",
+		  "value": 1.1
+		}
+	  ],
+	  "rarity": 0.4,
+	  "prerequisites": ["increased_top_speed", "increased_acceleration"],
+	  "exclusions": [],
+	  "max_level": 2
+	},
+	{
+	  "id": "arc_spread",
+	  "name": "Arc Spread",
+	  "description": "Increases bullet spread angle by 25%, creating a wider arc of fire",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "spread",
+	  },
+	  "rarity": 0.6,
+	  "prerequisites": [],
+	  "exclusions": ["focused_fire"],
+	  "max_level": 3
+	},
+	{
+	  "id": "focused_fire",
+	  "name": "Focused Fire",
+	  "description": "Reduces bullet spread angle by 40%, concentrating fire in a tighter pattern",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "spread",
+		"value": 0.6
+	  },
+	  "rarity": 0.5,
+	  "prerequisites": [],
+	  "exclusions": ["arc_spread"],
+	  "max_level": 2
+	},
+	{
+	  "id": "triple_shot",
+	  "name": "Triple Shot",
+	  "description": "Fire three bullets at once",
+	  "effect": {
+		"type": "multiply",
+		"attribute": "bullet_count",
+		"value": 1.74
+	  },
+	  "rarity": 0.3,
+	  "prerequisites": [],
+	  "exclusions": [],
+	  "max_level": 1
+	},
+	{
+	"id": "bullet_storm",
+	"name": "Bullet Storm",
+	"description": "Double bullet count with increased spread",
+	"effect": [
+		{
+			"type": "multiply",
+			"attribute": "bullet_count",
+			"value": 2
+		},
+		{
+			"type": "multiply",
+			"attribute": "bullet_spread",
+			"value": 2
+		}
+	],
+	"rarity": 0.3,
+	"prerequisites": [],
+	"exclusions": ["triple_shot"],
+	"max_level": 1
+},
+	{
+	  "id": "precision_volley",
+	  "name": "Precision Volley",
+	  "description": "Increases bullet count by 50% while reducing spread by 20%",
+	  "effect": [
+		{
+		  "type": "multiply",
+		  "attribute": "bullet_count_multiplier",
+		  "value": 1.5
+		},
+		{
+		  "type": "multiply",
+		  "attribute": "spread",
+		  "value": 0.8
+		}
+	  ],
+	  "rarity": 0.4,
+	  "prerequisites": [],
+	  "exclusions": ["triple_shot"],
+	  "max_level": 2
+	}
+  ]
+}

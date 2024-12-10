@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgp7agkfc7v4y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_Trail"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+
+[node name="BulletTrailParticles" type="GPUParticles2D"]
+process_material = SubResource("ParticleProcessMaterial_Trail")
+fixed_fps = 10
